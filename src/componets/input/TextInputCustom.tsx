@@ -1,18 +1,9 @@
-import {TextInput} from 'react-native-paper';
 import React from 'react';
+import {View, Text} from 'react-native';
+import {TextInput} from 'react-native-paper';
 
-interface TextInputCustomProps {
-  onPress?: () => void;
-  label: string;
-  value?: string;
-  icon?: '';
-  mode?: string;
-}
-export default function TextInputCustom({
-  label,
-  value,
-  icon,
-  mode,
-}: TextInputCustomProps) {
-  return <TextInput label={label} value={value} mode="outlined" />;
-}
+const TextInputCustom = ({label, mode, placeholder}) => {
+  return <TextInput label={label} mode="outlined" placeholder={placeholder} />;
+};
+
+export default TextInputCustom;

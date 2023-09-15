@@ -1,16 +1,13 @@
-import {View, Text, TouchableOpacity} from 'react-native';
-import {Button} from 'react-native-paper';
 import React from 'react';
+import {Button} from 'react-native-paper';
 
-interface ButtonCustomProp {
-  value?: string;
-  label: string;
-}
-export default function ButtonCustomF({value, label}: ButtonCustomProp) {
+
+const ButtonCustom = ({label, mode, onPress}) => {
   return (
-    // <TouchableOpacity>
-    //   <Text>{label}</Text>
-    // </TouchableOpacity>
-    <Button mode="contained">{label}</Button>
+    <Button mode="contained" onPress={onPress}>
+      {label}
+    </Button>
   );
-}
+};
+
+export default ButtonCustom;

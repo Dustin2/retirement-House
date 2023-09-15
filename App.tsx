@@ -6,11 +6,11 @@ import {PaperProvider} from 'react-native-paper';
 
 const App = ({navigation}) => {
   return (
-    // <PaperProvider>
+    <PaperProvider>
       <SafeAreaView style={styles.appContainer}>
         <MainNavigation />
       </SafeAreaView>
-    // </PaperProvider>
+    </PaperProvider>
   );
 };
 
