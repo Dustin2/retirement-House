@@ -30,7 +30,7 @@ const MainNavigation = ({navigation}) => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        {appIsReady ? (
+        {/* {appIsReady ? (
           <Stack.Screen
             name="Loggin"
             component={Login}
@@ -46,7 +46,7 @@ const MainNavigation = ({navigation}) => {
               headerShown: false,
             }}
           />
-        )}
+        )} */}
 
         <Stack.Screen
           name="Last Adds"

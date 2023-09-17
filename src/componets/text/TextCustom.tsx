@@ -1,10 +1,28 @@
-import {View, Text} from 'react-native';
-import React from 'react';
+import {View, Text, StyleSheet} from 'react-native';
+import React, {useState} from 'react';
 
-const TextCustom = () => {
+const lightTheme = {
+  textColor: 'black',
+};
+
+const darkTheme = {
+  textColor: 'white',
+};
+
+export const theme = {
+  light: lightTheme,
+  dark: darkTheme,
+};
+const TextCustom = ({name, textColor}) => {
+  const [selectedColor, setSelectedColor] = useState(textColor);
+
+  // const toggleTheme = () => {
+  //   setCurrentTheme(currentTheme === 'light' ? 'dark' : 'light');
+  // };
+
   return (
     <View>
-      <Text>TextCustom</Text>
+      <Text style={{color: textColor, margin: 61}}>{name}</Text>
     </View>
   );
 };

@@ -1,8 +1,14 @@
 import React, {useState} from 'react';
-import {View, StyleSheet, Text, Platform} from 'react-native';
-import {TextInput, Button} from 'react-native-paper';
+//rn
+import {View, StyleSheet, Platform} from 'react-native';
+import {Button} from 'react-native-paper';
+//external componets
 import DateTimePicker from '@react-native-community/datetimepicker';
+//managment date
 import moment from 'moment';
+//custom componets
+import Text from '../componets/text/TextCustom';
+import TextInput from './input/TextInputCustom';
 
 const DatePicker = () => {
   const [date, setDate] = useState(new Date());
@@ -12,24 +18,25 @@ const DatePicker = () => {
     setShowDatePicker(Platform.OS === 'ios'); // Mostrar o DateTimePicker no iOS
     setDate(currentDate);
   };
+
   return (
     <View>
-      <Text>selected your date</Text>
-      <TextInput mode="outlined" style={styles.inputs}>
-        {date
-          ? moment(date).format('DD/MM/YYYY', 'es-MX')
-          : 'Fecha no seleccionada'}
-      </TextInput>
-      <Button
-        label="start sesión"
-        mode="contained"
-        onPress={() => setShowDatePicker(true)}>
-        dsadsa
+      <Text name=" birthdate" textColor="black" />
+      <TextInput
+        style={styles.inputs}
+        disabled
+        placeholder={
+          date
+            ? moment(date).format('DD/MM/YYYY', 'es-MX')
+            : 'Fecha no seleccionada'
+        }
+      />
+
+      <Button mode="contained" onPress={() => setShowDatePicker(true)}>
+        Select your birthdate
       </Button>
       {showDatePicker && (
         <DateTimePicker
-          //   testID="dateTimePicker"
-
           value={date}
           mode="date"
           is24Hour={true}
@@ -37,6 +44,12 @@ const DatePicker = () => {
           onChange={onChange}
         />
       )}
+      <Text name=" Age" textColor="black" />
+      <TextInput
+        disabled={true}
+        placeholder={moment(date, 'YYYYMMDD').fromNow()}
+        // placeholder={diferenciaEnAnos}
+      />
     </View>
   );
 };

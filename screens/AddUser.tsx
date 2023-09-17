@@ -1,74 +1,45 @@
 import React, {useState, useEffect} from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  SafeAreaView,
-  TouchableOpacity,
-} from 'react-native';
-import {TextInput, Button} from 'react-native-paper';
+import {View, StyleSheet, SafeAreaView, ScrollView} from 'react-native';
 
 import DatePicker from '../src/componets/DatePicker';
-import Icon from 'react-native-paper/lib/typescript/components/MaterialCommunityIcon';
+// import Icon from 'react-native-paper/lib/typescript/components/MaterialCommunityIcon';
+import TextInput from '../src/componets/input/TextInputCustom';
+import Text from '../src/componets/text/TextCustom';
+import Button from '../src/componets/ButtonCustom';
 const AddUser = ({navigation}) => {
   return (
     <View style={styles.mainContainer}>
       <SafeAreaView>
-        <Text>insert your name</Text>
-        <TextInput
-          label="Name"
-          mode="outlined"
-          style={styles.inputs}
-          left={<TextInput.Icon icon="camera" />}
-          // right={<TextInput.Icon icon="eye" />}
-        />
-        <Text>insert your Last name</Text>
-        <TextInput
-          label="Lastname"
-          placeholder="dsadas"
-          mode="outlined"
-          style={styles.inputs}
-        />
-        <Text>insert your Age</Text>
-        <TextInput
-          label="Age"
-          placeholder="dsadas"
-          mode="outlined"
-          style={styles.inputs}
-          keyboardType="numeric"
-        />
-        <DatePicker />
+        <ScrollView>
+          <Text name="Name" textColor="black" />
+          <TextInput label="insert your name" placeholder="insert your name" />
+          <Text name="Last Name" textColor="black" />
+          <TextInput label="last name" placeholder="insert your last name" />
+          <DatePicker />
+          <Text name="curp" textColor="black" />
+          <TextInput
+            label="Curp"
+            placeholder="IDSADSA"
+            mode="outlined"
+            style={styles.inputs}
+            keyboardType="default"
+          />
+          <Text name="Diseases" textColor="black" />
+          <TextInput
+            label="diseases"
+            placeholder="Diabetic"
+            style={styles.btnMultiLine}
+            keyboardType="default"
+            multiline
+          />
 
-        <Text>insert your name</Text>
-        <TextInput
-          label="Curp"
-          placeholder="IDSADSA"
-          mode="outlined"
-          style={styles.inputs}
-          keyboardType="default"
-        />
-        <Text>insert your name</Text>
-        <TextInput
-          label="Issues"
-          placeholder="Diabetic"
-          mode="outlined"
-          style={styles.inputs}
-          keyboardType="default"
-          multiline
-        />
+          <Button label="dsds" onPress={() => console.log('ds')} />
+        </ScrollView>
       </SafeAreaView>
-      <View style={styles.btnSend}>
-        <Button
-          mode="outlined"
-          onPress={() => {
-            navigation.navigate('family');
-          }}>
-          next page
-        </Button>
-      </View>
     </View>
   );
 };
+git tag v0.1.0 abcdef12345
 
 const styles = StyleSheet.create({
   mainContainer: {
@@ -82,5 +53,12 @@ const styles = StyleSheet.create({
   btnSend: {
     alignContent: 'flex-end',
   },
+  btnMultiLine: {
+    width: 'auto',
+    height: 120,
+    // margin: 6,
+    fontSize: 17,
+  },
+  // tittle: {},
 });
 export default AddUser;

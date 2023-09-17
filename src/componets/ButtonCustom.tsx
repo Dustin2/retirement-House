@@ -2,9 +2,9 @@ import React from 'react';
 import {Button} from 'react-native-paper';
 
 
-const ButtonCustom = ({label, mode, onPress}) => {
+const ButtonCustom = ({label, mode, onPress,icon}) => {
   return (
-    <Button mode="contained" onPress={onPress}>
+    <Button mode="contained" onPress={onPress} icon={icon}>
       {label}
     </Button>
   );
