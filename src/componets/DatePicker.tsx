@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 //rn
-import {View, StyleSheet, Platform} from 'react-native';
+import {View, StyleSheet, Platform,Alert} from 'react-native';
 import {Button} from 'react-native-paper';
 //external componets
 import DateTimePicker from '@react-native-community/datetimepicker';
@@ -10,7 +10,7 @@ import moment from 'moment';
 import Text from '../componets/text/TextCustom';
 import TextInput from './input/TextInputCustom';
 
-const DatePicker = () => {
+const DatePicker = ({onPress}) => {
   const [date, setDate] = useState(new Date());
   const [showDatePicker, setShowDatePicker] = useState(false);
   const onChange = (event, selectedDate) => {
@@ -21,7 +21,7 @@ const DatePicker = () => {
 
   return (
     <View>
-      <Text name=" birthdate" textColor="black" />
+      <Text text=" birthdate" textColor="black" />
       <TextInput
         style={styles.inputs}
         disabled
@@ -44,11 +44,11 @@ const DatePicker = () => {
           onChange={onChange}
         />
       )}
-      <Text name=" Age" textColor="black" />
+      <Text text=" Age" textColor="black" />
       <TextInput
         disabled={true}
         placeholder={moment(date, 'YYYYMMDD').fromNow()}
-        // placeholder={diferenciaEnAnos}
+      
       />
     </View>
   );

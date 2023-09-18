@@ -1,45 +1,90 @@
 import React, {useState, useEffect} from 'react';
-import {View, StyleSheet, SafeAreaView, ScrollView} from 'react-native';
+import {
+  View,
+  StyleSheet,
+  SafeAreaView,
+  ScrollView,
+  TouchableOpacity,
+} from 'react-native';
 
+//external componets
 import DatePicker from '../src/componets/DatePicker';
-// import Icon from 'react-native-paper/lib/typescript/components/MaterialCommunityIcon';
+
+//custom componets
 import TextInput from '../src/componets/input/TextInputCustom';
 import Text from '../src/componets/text/TextCustom';
 import Button from '../src/componets/ButtonCustom';
+import {AlertModal} from '../src/componets/AlertModal';
+
 const AddUser = ({navigation}) => {
+  const InitialState = {
+    diseases: '',
+    date: '',
+    age: '',
+    birthday: '',
+    curp: '',
+    name: '',
+    lastName: '',
+  };
+  const [newUser, setNewUser] = useState(InitialState);
+
+  //change text
+  const handleChangeText = (name, value) => {
+    setNewUser({...newUser, [name]: value});
+    console.log(newUser);
+  };
+
+  const handleAlertAction = () => {
+    // Implement your custom logic here when a button in the Alert is pressed.
+    // This function can be passed as the onPress handler to the Alert component.
+    console.log('Alert button pressed');
+  };
+
   return (
     <View style={styles.mainContainer}>
       <SafeAreaView>
         <ScrollView>
-          <Text name="Name" textColor="black" />
-          <TextInput label="insert your name" placeholder="insert your name" />
-          <Text name="Last Name" textColor="black" />
-          <TextInput label="last name" placeholder="insert your last name" />
-          <DatePicker />
-          <Text name="curp" textColor="black" />
+          <Text text="Name" textColor="black" />
+          <TextInput
+            label="insert your name"
+            placeholder="insert your name"
+            onChangeText={value => handleChangeText('name', value)}
+          />
+          <Text text="Last Name" textColor="black" />
+          <TextInput
+            label="last name"
+            placeholder="Insert your last name"
+            onChangeText={value => handleChangeText('lastname', value)}
+          />
+          <DatePicker onPress={value => {}} />
+          <Text text="curp" textColor="black" />
           <TextInput
             label="Curp"
-            placeholder="IDSADSA"
+            placeholder="Insert your curp"
             mode="outlined"
             style={styles.inputs}
             keyboardType="default"
+            onChangeText={value => handleChangeText('curp', value)}
           />
-          <Text name="Diseases" textColor="black" />
+          <Text text="Diseases" textColor="black" />
           <TextInput
             label="diseases"
             placeholder="Diabetic"
             style={styles.btnMultiLine}
             keyboardType="default"
             multiline
+            onChangeText={value => handleChangeText('diseases', value)}
           />
 
-          <Button label="dsds" onPress={() => console.log('ds')} />
+          <Button
+            label="save info"
+            onPress={() => navigation.navigate('family')}
+          />
         </ScrollView>
       </SafeAreaView>
     </View>
   );
 };
-git tag v0.1.0 abcdef12345
 
 const styles = StyleSheet.create({
   mainContainer: {
