@@ -13,7 +13,7 @@ export const theme = {
   light: lightTheme,
   dark: darkTheme,
 };
-const TextCustom = ({text, textColor}) => {
+const TextCustom = ({text, textColor, fontSize, styles}) => {
   const colorScheme = useColorScheme();
 
   const [selectedColor, setSelectedColor] = useState(textColor || 'black');
@@ -33,7 +33,7 @@ const TextCustom = ({text, textColor}) => {
         //       }
         //     : {color: '#000000'}
         // }
-        style={{color: textColor, margin: 6}}>
+        style={{...styles, color: textColor, margin: 6, fontSize: fontSize}}>
         {text}
       </Text>
     </View>

@@ -44,20 +44,25 @@ const AddUser = ({navigation}) => {
     <View style={styles.mainContainer}>
       <SafeAreaView>
         <ScrollView>
-          <Text text="Name" textColor="black" />
-          <TextInput
-            label="insert your name"
-            placeholder="insert your name"
-            onChangeText={value => handleChangeText('name', value)}
+          <Text
+            text="Patient Info"
+            textColor="gray"
+            fontSize={25}
+            styles={styles.tittle}
           />
-          <Text text="Last Name" textColor="black" />
+          <View>
+            <TextInput
+              label="Name"
+              // placeholder="insert your name"
+              onChangeText={value => handleChangeText('name', value)}
+            />
+          </View>
           <TextInput
-            label="last name"
+            label="Last name"
             placeholder="Insert your last name"
             onChangeText={value => handleChangeText('lastname', value)}
           />
           <DatePicker onPress={value => {}} />
-          <Text text="curp" textColor="black" />
           <TextInput
             label="Curp"
             placeholder="Insert your curp"
@@ -66,7 +71,6 @@ const AddUser = ({navigation}) => {
             keyboardType="default"
             onChangeText={value => handleChangeText('curp', value)}
           />
-          <Text text="Diseases" textColor="black" />
           <TextInput
             label="diseases"
             placeholder="Diabetic"
@@ -77,7 +81,7 @@ const AddUser = ({navigation}) => {
           />
 
           <Button
-            label="save info"
+            label="save  family info"
             onPress={() => navigation.navigate('family')}
           />
         </ScrollView>
@@ -104,6 +108,8 @@ const styles = StyleSheet.create({
     // margin: 6,
     fontSize: 17,
   },
-  // tittle: {},
+  tittle: {
+    textAlign: 'center',
+  },
 });
 export default AddUser;

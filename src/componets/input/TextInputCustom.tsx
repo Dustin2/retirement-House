@@ -12,17 +12,25 @@ const TextInputCustom = ({
   disabled,
   style,
   multiline,
+  underlineColor,
+  secureTextEntry,
+  onFocus,
+  activeOutlineColor
 }) => (
   <TextInput
-    style={{...style, backgroundColor: 'transparent', margin: 10}}
+    style={{...style, backgroundColor: 'transparent', margin: 8}}
     mode="outlined"
     keyboardType={keyboardType || 'default'}
     label={label}
     value={value}
+    underlineColor={underlineColor}
     onChangeText={onChangeText}
     placeholder={placeholder}
     disabled={disabled}
     multiline={multiline}
+    secureTextEntry={secureTextEntry}
+    onFocus={onFocus}
+    activeOutlineColor={activeOutlineColor}
   />
 );
 

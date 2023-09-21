@@ -21,7 +21,6 @@ const DatePicker = ({onPress}) => {
 
   return (
     <View>
-      <Text text=" birthdate" textColor="black" />
       <TextInput
         style={styles.inputs}
         disabled
@@ -47,7 +46,7 @@ const DatePicker = ({onPress}) => {
       <Text text=" Age" textColor="black" />
       <TextInput
         disabled={true}
-        placeholder={moment(date, 'YYYYMMDD').fromNow()}
+        placeholder={'Age: '+moment(date, 'YYYYMMDD').fromNow()}
       
       />
     </View>
